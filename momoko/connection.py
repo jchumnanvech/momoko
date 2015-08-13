@@ -556,7 +556,7 @@ class Pool(object):
                 try:
                     ping_fut.result()
                 except psycopg2.Error as error:
-                    ping_future.set_exc_info(error)
+                    ping_future.set_exception(error)
                     self.putconn(conn)
                 else:
                     ping_future.set_result(conn)
